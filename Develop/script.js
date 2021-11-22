@@ -26,24 +26,28 @@ function generatePassword () {
   var lowercaseConfirm = confirm("Would you like to include some Lowercase letters in your password?");
     if (lowercaseConfirm == true) {
       charset += lowercase;
+      console.log(charset)
     }
   
   // Include uppercase entries?
   var uppercaseConfirm = confirm("Would you like to include some Uppercase letters in your password?");
     if (uppercaseConfirm) {
       charset += uppercase;
+      console.log(charset)
     }
 
   // Include numeric entries?
   var numericsConfirm = confirm("Would you like to include Numbers in your password?");
     if (numericsConfirm) {
       charset += numerics;
+      console.log(charset)
     }
 
   // Include special character entries? 
   var spcharConfirm = confirm("Would you like to include Special Characters in your passwod?");
     if (spcharConfirm) {
       charset += spchar;
+      console.log(charset)
     }
 
     // If all entry options are declined, prompt a reset and alert to choose at least one
