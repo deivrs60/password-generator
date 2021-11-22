@@ -16,30 +16,31 @@ function generatePassword () {
   window.alert("You have chosen a password with " + length + " characters.");
 
   // begin boolean confirmation alerts
+
   // Include lowercase pr
   var lowercaseConfirm = confirm("Would you like to include some Lowercase letters in your password?");
     if (lowercaseConfirm == true) {
-      charset = lowercase
+      charset += lowercase;
       window.alert("Lowercase letters WILL  be included in your password.")
     }
     else {
-      charset != lowercase 
+      charset != lowercase; 
       window.alert("Lowercase letters will NOT be included in your password.")
     }
 
   var uppercaseConfirm = confirm("Would you like to include some Uppercase letters in your password?");
     if (uppercaseConfirm) {
-      charset = uppercase
+      charset += uppercase;
     }
 
   var numericsConfirm = confirm("Would you like to include Numbers in your password?");
     if (numericsConfirm) {
-      charset = numerics
+      charset += numerics;
     }
   
   var spcharConfirm = confirm("Would you like to include Special Characters in your passwod?");
     if (spcharConfirm) {
-      charset = spchar
+      charset += spchar;
     }
 
   var charset
@@ -51,7 +52,6 @@ function generatePassword () {
 };
 
 //////////////////////////////////////////////////////////////////////////////
-
 
 
 
