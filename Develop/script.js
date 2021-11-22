@@ -1,11 +1,16 @@
 // Assignment code here
 
+/////////////////////////////////////////////////////////////////////////////
+
 var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numerics = "0123456789";
 var spchar = "#$%&'()*+,-./:;<=>?@[]/^_`{|}~";
+var charset = "";
 
-////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////
+
 function generatePassword () {
   var length = window.prompt("Please type your password character length no less than 8 and no more than 128.");
   
@@ -15,46 +20,49 @@ function generatePassword () {
   }
   window.alert("You have chosen a password with " + length + " characters.");
 
-  // begin boolean confirmation alerts
+  ///////// begin boolean confirmation alerts /////////
 
-  // Include lowercase pr
+  // Include lowercase entries?
   var lowercaseConfirm = confirm("Would you like to include some Lowercase letters in your password?");
     if (lowercaseConfirm == true) {
       charset += lowercase;
-      window.alert("Lowercase letters WILL  be included in your password.")
     }
-    else {
-      charset != lowercase; 
-      window.alert("Lowercase letters will NOT be included in your password.")
-    }
-
+  
+  // Include uppercase entries?
   var uppercaseConfirm = confirm("Would you like to include some Uppercase letters in your password?");
     if (uppercaseConfirm) {
       charset += uppercase;
     }
 
+  // Include numeric entries?
   var numericsConfirm = confirm("Would you like to include Numbers in your password?");
     if (numericsConfirm) {
       charset += numerics;
     }
-  
+
+  // Include special character entries? 
   var spcharConfirm = confirm("Would you like to include Special Characters in your passwod?");
     if (spcharConfirm) {
       charset += spchar;
     }
 
-  var charset
+    // If all entry options are declined, prompt a reset and alert to choose at least one
+    if (lowercaseConfirm == false && uppercaseConfirm == false &&  numericsConfirm == false && spcharConfirm == false )  {
+      window.alert("Please choose at lease one entry option for your password.")
+      generatePassword()
+    }
+
+    // Generate the password based on selected entries!
     retVal = "";
     for (var i = 0, n = charset.length; i < length; ++i) {
       retVal += charset.charAt(Math.floor(Math.random() * n));
-  } 
+  }
+  
+
   return retVal;
 };
 
-//////////////////////////////////////////////////////////////////////////////
-
-
-
+/////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -73,7 +81,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-// switch 
